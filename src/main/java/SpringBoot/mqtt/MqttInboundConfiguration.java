@@ -32,7 +32,7 @@ public class MqttInboundConfiguration {
 	@Bean
 	public MessageProducer inbound() {
 		String[] inboundTopics = mqttProperties.getInbound().getTopics().split(",");
-		System.out.println("----------------inboundTopics:"+inboundTopics);
+		System.out.println("----------------inboundTopics:"+inboundTopics[0]);
 		MqttPahoMessageDrivenChannelAdapter adapter = new MqttPahoMessageDrivenChannelAdapter(
 				mqttProperties.getInbound().getUrl(), mqttProperties.getInbound().getClientId(), inboundTopics);
 		adapter.setCompletionTimeout(5000);
